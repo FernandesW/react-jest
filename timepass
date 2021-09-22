@@ -1,0 +1,29 @@
+#new
+module.exports = {
+    testEnvironment: "node",
+    roots: ["src/tests/"],
+    transform: {
+      '\\.(js|jsx)?$': 'babel-jest',
+    },
+    collectCoverageFrom: ["src/"],
+    moduleFileExtensions: ["ts", "js", "json"],
+    coverageDirectory: "../coverage"
+  };
+
+  #old
+module.export = {
+roots: ['src'],
+transform: {
+    '\\.(js|jsx)?$': 'babel-jest',
+},
+testMatch: ['src/**/>(*.)test.{js, jsx}'], // finds test
+moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
+testPathIgnorePatterns: ['/node_modules/', '/public/'],
+setupFilesAfterEnv: [
+    'src/setupTests.js'
+],
+jest: {
+    project: 'default',
+    config: require(__dirname + '/jest.config.js')
+},
+};
